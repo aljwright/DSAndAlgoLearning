@@ -6,35 +6,35 @@ import java.util.Stack;
 public class BinaryTreeTraversals {
 
     public void recursivePreOrder(BinaryTreeNode root){
-        if(root!= null){
-            System.out.println(root.data);
-            recursivePreOrder(root.left);
-            recursivePreOrder(root.right);
+        if(root!=null){
+            System.out.println(root.getData());
+            recursivePreOrder(root.getLeft());
+            recursivePreOrder(root.getRight());
         }
     }
 
     public ArrayList<Integer> iterativePreOrder(BinaryTreeNode root){
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
 
-        if(root == null){
+        if(root==null)
             return result;
-        }
 
-        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+        Stack<BinaryTreeNode> stack = new Stack<>();
         stack.push(root);
 
         while (!stack.isEmpty()){
             BinaryTreeNode tempNode = stack.pop();
-            result.add(tempNode.data);
+            result.add(tempNode.getData());
 
-            if(tempNode.right!= null){
-                stack.push(tempNode.right);
+            if(tempNode.getRight()!=null){
+                stack.push(tempNode.getRight());
             }
 
-            if(tempNode.left!= null){
-                stack.push(tempNode.left);
+            if(tempNode.getLeft()!=null){
+                stack.push(tempNode.getLeft());
             }
         }
+
         return result;
     }
 
